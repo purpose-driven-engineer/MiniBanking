@@ -15,6 +15,8 @@ public class MiniBankingMain {
     public static void main(String[] args) throws IllegalStateException {
         System.out.println("\nWelcome to London MiniBanking\n==============================\n");
 
+        MiniBankingOperationInterf bankingOps = new MiniBankingOperationImpl();
+
         // instantiate authentications variables
         int customerNumber = 98765;
         final int PIN = 1982;
@@ -38,15 +40,22 @@ public class MiniBankingMain {
                 switch(choice){
                     case 1:
                         System.out.println("Your Account balance is: ");
+                        bankingOps.viewBalance();
+                        break;
 
                     case 2:
                         System.out.println("How much do you want to deposit no? ");
+                        double deposit = scanner.nextDouble();
+                        bankingOps.depositedAmount(deposit);
+                        break;
 
                     case 3:
                         System.out.println("How much would you like to withdraw now? ");
+                        break;
 
                     case 4:
                         System.out.println("Here is your transaction history. ");
+                        break;
 
                     case 5:
                         System.out.println("Account Logged Off.\n Thank you for using London MiniBanking");
