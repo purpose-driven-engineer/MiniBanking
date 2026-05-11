@@ -16,13 +16,17 @@ public class MiniBankingOperationImpl implements MiniBankingOperationInterf{
 
     @Override
     public void withdrawalAmount(double withdrawAmount) {
-        if (withdrawAmount <= miniBank.getBalance()){
-            transactionHistory.put(withdrawAmount, " Withdrawn");
-            System.out.println(withdrawAmount + " Withdrawal Successful!");
-            miniBank.setBalance(miniBank.getBalance() - withdrawAmount);
-            viewBalance();
-        } else {
-            System.out.println("You do not have sufficient balance.");
+        if (withdrawAmount%500 == 0){
+            if (withdrawAmount <= miniBank.getBalance()){
+                transactionHistory.put(withdrawAmount, " Withdrawn");
+                System.out.println(withdrawAmount + " Withdrawal Successful!");
+                miniBank.setBalance(miniBank.getBalance() - withdrawAmount);
+                viewBalance();
+            } else {
+                System.out.println("You do not have sufficient balance.");
+            }
+        } else{
+            System.out.println("We are able to only dispense in multiple of 500");
         }
     }
 
