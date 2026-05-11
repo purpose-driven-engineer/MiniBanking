@@ -16,7 +16,7 @@ public class MiniBankingOperationImpl implements MiniBankingOperationInterf{
 
     @Override
     public void withdrawalAmount(double withdrawAmount) {
-        if (withdrawAmount%500 == 0){
+        if (withdrawAmount % 500 == 0){
             if (withdrawAmount <= miniBank.getBalance()){
                 transactionHistory.put(withdrawAmount, " Withdrawn");
                 System.out.println(withdrawAmount + " Withdrawal Successful!");
