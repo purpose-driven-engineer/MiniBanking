@@ -1,4 +1,4 @@
-# com.eccl.MiniBanking App
+# MiniBanking Console App
 This is basically an implementation of a Banking (or ATM) system
 1. Use Bank Number and PIN for Auth
 2. Check Available Balance
