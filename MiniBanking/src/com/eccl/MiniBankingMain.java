@@ -22,20 +22,20 @@ public class MiniBankingMain {
         final int PIN = 1982;
 
         // request customer credentials
-        Scanner scanner = new Scanner(System.in);
+        Scanner userInput = new Scanner(System.in);
         System.out.print("Enter Your Customer Number: ");
-        int customerInput = scanner.nextInt();
+        int customerInput = userInput.nextInt();
         System.out.print("Enter Customer PIN: ");
-        int customerPin = scanner.nextInt();
+        int customerPin = userInput.nextInt();
 
         //validate credentials
         if ((customerInput == customerNumber) && (customerPin == PIN)){
-            System.out.println("Customer Account confirmed!");
+            System.out.println("Customer Account confirmed!\n");
             while(true){
 
                 System.out.println("What would you like to do today? ");
-                System.out.println("1. Check Account Balance.\n2. Make Deposit.\n3. Make Withdrawal. \n4. Print Transaction History. \n5. Log out of account. \n");
-                int choice = scanner.nextInt();
+                System.out.print("1. Check Account Balance.\n2. Make Deposit.\n3. Make Withdrawal. \n4. Print Transaction History. \n5. Log out of account. \n");
+                int choice = userInput.nextInt();
 
                 switch(choice){
                     case 1:
@@ -44,17 +44,20 @@ public class MiniBankingMain {
                         break;
 
                     case 2:
-                        System.out.println("How much do you want to deposit no? ");
-                        double deposit = scanner.nextDouble();
+                        System.out.println("How much do you want to deposit now? ");
+                        double deposit = userInput.nextDouble();
                         bankingOps.depositedAmount(deposit);
                         break;
 
                     case 3:
                         System.out.println("How much would you like to withdraw now? ");
+                        double withdraw = userInput.nextDouble();
+                        bankingOps.withdrawalAmount(withdraw);
                         break;
 
                     case 4:
                         System.out.println("Here is your transaction history. ");
+                        bankingOps.viewTransactionHistory();
                         break;
 
                     case 5:
